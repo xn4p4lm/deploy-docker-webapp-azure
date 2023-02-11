@@ -23,6 +23,9 @@ RUN dnf -y install 'dnf-command(config-manager)'
 # add official docker repo
 RUN dnf -y config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
+# add terraform repo
+RUN yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+
 # groupinstall development tools 
 RUN dnf -y groupinstall development
 
