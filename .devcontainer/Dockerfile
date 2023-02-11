@@ -29,10 +29,7 @@ RUN dnf -y groupinstall development
 RUN dnf -y install sudo terraform podman
 
 # Enable docker service
-RUN systemctl enable docker
-
-# Create a user for docker
-RUN usermod -aG docker ${USERNAME}
+RUN systemctl enable podman
 
 # Set user for codespace to sudoers
 RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
