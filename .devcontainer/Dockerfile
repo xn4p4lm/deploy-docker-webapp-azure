@@ -20,16 +20,13 @@ RUN dnf -y update
 # Install DNF config manager
 RUN dnf -y install 'dnf-command(config-manager)'
 
-# add official docker repo
-RUN dnf -y config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
 # add terraform repo
 RUN dnf -y config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 
 # groupinstall development tools 
 RUN dnf -y groupinstall development
 
-RUN dnf -y install sudo terraform docker docker-ce docker-ce-cli containerd.io docker-compose-plugin
+RUN dnf -y install sudo terraform podman
 
 # Enable docker service
 RUN systemctl enable docker
