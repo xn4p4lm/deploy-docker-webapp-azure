@@ -18,10 +18,10 @@ RUN useradd -u ${USER_UID} -g ${USER_GID} -d ${HOMEDIR} ${USERNAME}
 RUN dnf -y update
 
 # Install DNF config manager
-RUN dnf install 'dnf-command(config-manager)'
+RUN dnf -y install 'dnf-command(config-manager)'
 
 # add official docker repo
-RUN dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+RUN dnf -y config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
 # groupinstall development tools 
 RUN dnf -y groupinstall development
